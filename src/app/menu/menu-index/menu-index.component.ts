@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from '../../shared.service';
 
 @Component({
   selector: 'app-menu-index',
@@ -7,4 +8,24 @@ import { Component } from '@angular/core';
 })
 export class MenuIndexComponent {
 
+  ListMenu: any = [];
+
+  constructor(private service: SharedService) {
+
+  }
+
+  ngOnInit(): void {
+    this.reloadListMenu();
+
+    // Đăng ký lắng nghe sự kiện từ SharedService
+    this.service.addMenuSuccess$.subscribe(() => {
+      this.reloadListMenu();
+    });
+  }
+
+  reloadListMenu() {
+    this.service.getMenus().subscribe(data => {
+      this.ListMenu = data;
+    });
+  }
 }

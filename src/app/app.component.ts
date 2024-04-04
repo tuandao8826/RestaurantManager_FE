@@ -3,8 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'] // Chú ý đây là mảng
 })
 export class AppComponent {
   title = 'RestaurantManager_FE';
 }
+     

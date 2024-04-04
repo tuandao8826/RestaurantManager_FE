@@ -1,1 +1,4 @@
-<p>menu-create works!</p>
+<form class="form-inline" (ngSubmit)="addMenu()">
+    <input class="form-control mr-sm-2" type="text" [(ngModel)]="menuName" name="menuName" placeholder="Tên thực đơn">
+    <button type="submit" class="btn btn-primary">Thêm mới</button>
+</form>
