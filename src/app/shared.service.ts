@@ -10,15 +10,22 @@ export class SharedService {
   readonly APIUrl = 'http://localhost:5163/api';
   readonly PhotoUrl = 'http://localhost:5163/Photos';
 
+  private reloadSubject = new Subject<void>();
+  private closeSubject = new Subject<void>();
+  reload$ = this.reloadSubject.asObservable();
+  close$ = this.closeSubject.asObservable();
+
   constructor(private http:HttpClient) { }
 
-  // private addMenuSuccessSubject = new Subject<void>();
+  // tải lại 
+  notifyReload() {
+    this.reloadSubject.next();
+  }
 
-  // addMenuSuccess$ = this.addMenuSuccessSubject.asObservable();
-
-  // notifyAddMenuSuccess() {
-  //   this.addMenuSuccessSubject.next();
-  // }
+  // đóng
+  notifyClose() {
+    this.closeSubject.next();
+  }
 
   // Lấy danh sách thực đơn
   getMenus(): Observable<any[]> {

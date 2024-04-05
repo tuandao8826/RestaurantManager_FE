@@ -16,17 +16,22 @@ export class MenuEditComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.newMenu = this.menu;
+    this.newMenu = {
+      MenuId: this.menu.MenuId,
+      Name: this.menu.Name
+    }
   }
 
   // sửa thực đơn
   editMenu() {
     this.service.editMenu(this.newMenu).subscribe(res => {
       alert(res.toString());
+      this.service.notifyReload();
     })
   }
 
-  closeMenuEdit() {
-    this.updateShowMenuEdit.emit();
+  // đóng chỉnh sửa
+  close() {
+    this.service.notifyClose();
   }
 }

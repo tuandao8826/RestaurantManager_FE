@@ -19,10 +19,15 @@ export class MenuIndexComponent {
   ngOnInit(): void {
     this.reloadListMenu();
 
-    // // Đăng ký lắng nghe sự kiện từ SharedService
-    // this.service.addMenuSuccess$.subscribe(() => {
-    //   this.reloadListMenu();
-    // });
+    // Đăng ký lắng nghe sự kiện từ SharedService
+    this.service.reload$.subscribe(() => {
+      this.reloadListMenu();
+    });
+
+    // lắng nghe sự kiện đóng cửa sổ
+    this.service.close$.subscribe(() => {
+      this.showMenuEdit = false;
+    });
   }
 
   reloadListMenu() {
@@ -32,14 +37,7 @@ export class MenuIndexComponent {
   }
 
   menuDetails(menu: any) {
-    console.log(this.showMenuEdit);
     this.menu = menu;
     this.showMenuEdit = true;
-  }
-
-  // Function để cập nhật giá trị của showMenuEdit
-  onUpdateShowMenuEdit() {
-    this.showMenuEdit = false;
-    this.reloadListMenu();
   }
 }

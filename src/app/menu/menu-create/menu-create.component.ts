@@ -22,7 +22,7 @@ export class MenuCreateComponent implements OnInit {
 
     this.service.addMenu(val).subscribe(res => {
       alert(res.toString());
-      //this.service.notifyAddMenuSuccess();
+      this.service.notifyReload();
     })
   }
 }
