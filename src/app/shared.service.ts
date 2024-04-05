@@ -12,13 +12,13 @@ export class SharedService {
 
   constructor(private http:HttpClient) { }
 
-  private addMenuSuccessSubject = new Subject<void>();
+  // private addMenuSuccessSubject = new Subject<void>();
 
-  addMenuSuccess$ = this.addMenuSuccessSubject.asObservable();
+  // addMenuSuccess$ = this.addMenuSuccessSubject.asObservable();
 
-  notifyAddMenuSuccess() {
-    this.addMenuSuccessSubject.next();
-  }
+  // notifyAddMenuSuccess() {
+  //   this.addMenuSuccessSubject.next();
+  // }
 
   // Lấy danh sách thực đơn
   getMenus(): Observable<any[]> {
