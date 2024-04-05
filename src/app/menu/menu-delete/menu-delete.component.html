@@ -1,1 +1,20 @@
-<p>menu-delete works!</p>
+<!-- Modal -->
+<form (ngSubmit)="deleteMenu()" class="modal" id="deleteMenu" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Xóa thực đơn</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Bạn có muốn xóa thực đơn "{{menu.Name}}"?
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-dismiss="modal" (click)="close()">Hủy</button>
+                <button type="submit" class="btn btn-primary">Xác nhận</button>
+            </div>
+        </div>
+    </div>
+</form>

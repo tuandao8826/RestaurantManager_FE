@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from '../../shared.service';
 
 @Component({
@@ -8,7 +8,6 @@ import { SharedService } from '../../shared.service';
 })
 export class MenuEditComponent implements OnInit{
   @Input() menu: any;
-  @Output() updateShowMenuEdit: EventEmitter<void> = new EventEmitter<void>();
   newMenu: any;
 
   constructor(private service: SharedService) {

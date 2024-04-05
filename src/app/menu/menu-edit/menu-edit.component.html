@@ -1,6 +1,5 @@
 <!-- Modal -->
-<form (ngSubmit)="editMenu()" class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true" data-backdrop="static" data-keyboard="false">
+<form (ngSubmit)="editMenu()" class="modal" id="editMenu" data-backdrop="static" data-keyboard="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -10,6 +9,11 @@
                 </button>
             </div>
             <div class="modal-body">
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label">Mã thực đơn:</label>
+                    <input class="form-control mr-sm-2" readonly type="number" value="{{newMenu.MenuId}}">
+                </div>
+
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label">Tên thực đơn:</label>
                     <input class="form-control mr-sm-2" type="text" [(ngModel)]="newMenu.Name" value="{{newMenu.Name}}" name="newMenu.Name">
