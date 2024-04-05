@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2, ElementRef } from '@angular/core';
 import { SharedService } from '../../shared.service';
 
 @Component({
@@ -11,8 +11,8 @@ export class MenuIndexComponent {
   ListMenu: any = [];
   menu: any;
   showMenuEdit: boolean = false;
-
-  constructor(private service: SharedService) {
+  
+  constructor(private service: SharedService, private renderer: Renderer2) {
 
   }
 
@@ -28,6 +28,11 @@ export class MenuIndexComponent {
     this.service.close$.subscribe(() => {
       this.showMenuEdit = false;
     });
+  }
+
+  ngAfterViewInit() {
+    // const element = this.renderer.selectRootElement('.table');
+    // console.log(element);
   }
 
   reloadListMenu() {
